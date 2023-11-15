@@ -13,8 +13,7 @@ public class Curser : MonoBehaviour
     [SerializeField]
     private GameObject Drawing;
     private Ray ray;
-    private Vector3 rayPoint;
-
+    public Vector3 rayPoint;
 
 
     void OnMouseOver()
@@ -40,9 +39,10 @@ public class Curser : MonoBehaviour
     {
         if (drawing)
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            Vector3 rayPoint = ray.GetPoint(distance);
+            ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            rayPoint = ray.GetPoint(distance);
             transform.position = rayPoint + startDist;
+            transform.position = new Vector3(Mathf.Round(rayPoint.x), Mathf.Round(rayPoint.y), Mathf.Round(rayPoint.z));
         }
     }
 }
