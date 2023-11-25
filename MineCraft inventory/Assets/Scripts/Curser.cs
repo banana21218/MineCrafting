@@ -7,10 +7,10 @@ public class Curser : MonoBehaviour
 {
     public GameObject Parent;
     public GameObject point;
+    public GameObject Drop;
     private bool drawing = false;
     private float distance;
     private Vector3 startDist;
-    [SerializeField]
     private GameObject Drawing;
     private Ray ray;
     public Vector3 rayPoint;
@@ -34,6 +34,8 @@ public class Curser : MonoBehaviour
     private void OnMouseDown()
     {
         Destroy(point);
+        Instantiate(Drop, rayPoint, Quaternion.identity);
+
     }
     public void Update()
     {
